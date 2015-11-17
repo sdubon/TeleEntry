@@ -1,4 +1,4 @@
-version="$(wget -q -O - http://sourceforge.net/projects/opencvlibrary/files/opencv-unix | egrep -m1 -o '\"[0-9](\.[0-9]+)+' | cut -c2-)"
+version="$(wget -q -O - http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.10 | egrep -m1 -o '\"[0-9](\.[0-9]+)+' | cut -c2-)"
 echo "Installing OpenCV" $version
 mkdir OpenCV
 cd OpenCV
