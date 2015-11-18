@@ -1,0 +1,19 @@
+{
+  "name": "TeleEntry",
+  "version": "1.0.0",
+  "description": "Gate control system",
+  "main": "rasp_client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sdubon",
+  "license": "ISC",
+  "dependencies": {
+    "delivery": "0.0.3",
+    "fs": "0.0.2",
+    "http": "0.0.0",
+    "request": "^2.66.0",
+    "socket.io-client": "^1.3.7",
+    "url": "^0.11.0"
+  }
+}
