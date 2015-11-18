@@ -1,4 +1,4 @@
-const device = { identifier: '00001' }
+const device = { identifier: '00002' }
 
 const settings = require('./settings_client_teleentry.json')
 
@@ -10,12 +10,14 @@ if (settings.DEBUG == true){
   HTTP_HOST = 'localhost'
 }
 
+// const socket = require('socket.io-client')('http://localhost:8080/devicecommand')
 const socket = require('socket.io-client')('http://' + HTTP_HOST + ':'+ HTTP_PORT +'/devicecommand')
 const app = require('http').createServer(http_server)
 const fs = require('fs')
 const url = require('url')
-const request = require('request');
-const dl = require('delivery');
+const dl  = require('delivery')
+const ss = require('socket.io-stream')
+const path = require('path')
 
 // ================================== SOCKET.IO (BEGIN) ==========
 socket.on('connect', function(data){
@@ -24,7 +26,7 @@ socket.on('connect', function(data){
 })
 
 socket.on('reconnect', function(number){
-  console.log("Reconnected :) ...", number)
+  console.log("reconnect", number)
   socket.emit('client_begin_conection', { identifier: device.identifier })
 })
 
@@ -51,28 +53,10 @@ socket.on('CHECK_CODE_OK', function(data){
   console.log("CHECK_CODE_OK", data)
 })
 
-socket.on( 'ReadImage', function() {
-  request('http://192.168.10.110:9989/onvif/media_service/snapshot').pipe(fs.createWriteStream('doodle.jpeg'));
-        
-  delivery = dl.listen( socket );
-  delivery.connect();
-    
-  delivery.on('delivery.connect',function(delivery){
-    delivery.send({
-      name: 'doodle.jpeg',
-      path : './doodle.jpeg'
-    });
- 
-    delivery.on('send.success',function(file){
-      console.log('File sent successfully!');
-    });
-  });   
-});
-
 // ================================== SOCKET.IO (END) ==========
 
 // ================================== HTTP SERVER (BEGIN) ==========
-app.listen(CLIENT_HTTP_PORT)
+app.listen(8082)
 
 function http_server(req, res){
 
@@ -96,6 +80,20 @@ function http_server(req, res){
       function(data){
         res.end("CHECK_CODE => " + JSON.stringify(data))
       })
+  }
+
+  if (url_parsed.pathname == '/image'){
+    console.log("Upload image")
+    res.end("Taking image ... \n")
+    var stream = ss.createStream()
+    request('http://192.168.10.110:9989/onvif/media_service/snapshot').pipe(fs.createWriteStream('doodle.jpeg'))		
+    var filename = 'doodle.jpeg'
+    ss(socket).emit('UPLOAD_IMAGE', stream, {name: filename}, function(server_data){
+      console.log("server_data: ", server_data)
+
+    })
+    fs.createReadStream(filename).pipe(stream)
+    // request('http://192.168.10.110:9989/onvif/media_service/snapshot').pipe(stream)
   }
 }
 // ================================== HTTP SERVER (END) ==========
