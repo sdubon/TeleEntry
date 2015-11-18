@@ -18,6 +18,7 @@ const url = require('url')
 const dl  = require('delivery')
 const ss = require('socket.io-stream')
 const path = require('path')
+const request = require('request')
 
 // ================================== SOCKET.IO (BEGIN) ==========
 socket.on('connect', function(data){
@@ -86,13 +87,16 @@ function http_server(req, res){
     console.log("Upload image")
     res.end("Taking image ... \n")
     var stream = ss.createStream()
-    request('http://192.168.10.110:9989/onvif/media_service/snapshot').pipe(fs.createWriteStream('doodle.jpeg'))		
+    request('http://192.168.10.110:9989/onvif/media_service/snapshot').pipe(stream)//.pipe(fs.createWriteStream('doodle.jpeg'))		
+    //request('http://google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png').pipe(stream)//.pipe(fs.createWriteStream('doodle.png'))		
+
+
     var filename = 'doodle.jpeg'
     ss(socket).emit('UPLOAD_IMAGE', stream, {name: filename}, function(server_data){
       console.log("server_data: ", server_data)
 
     })
-    fs.createReadStream(filename).pipe(stream)
+    //fs.createReadStream(filename).pipe(stream)
     // request('http://192.168.10.110:9989/onvif/media_service/snapshot').pipe(stream)
   }
 }
