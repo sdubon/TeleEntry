@@ -11,6 +11,7 @@ var message = ""
 
 console.log("Start")
 while(true){
+yield setTimeout(suspend.resume(), 10);  
 TeleEntry1.readByte(function(err, res) { 
 // result is single byte 
 console.log("read byte")
