@@ -15,7 +15,8 @@ var message = ""
 console.log("Start")
 TeleEntry1.on('data', function(data) {
   // result for continuous stream contains data buffer, address, length, timestamp 
-console.log(data);
+  console.log('data');
+  console.log(data);
 });
 /*
 while(true){
