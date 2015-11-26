@@ -8,7 +8,7 @@ var i = 0;
 var state = 0;
 var _ID = "test message"
 var _CODE = ""
-var message = " "
+var message = ""
 
 //"i=00001&c=9328&a=s"
 
@@ -18,13 +18,13 @@ setInterval(function(){
     if (res == '!'.charCodeAt(0) ){
       console.log("message")
       console.log(_ID)
-      message = " "
+      message = ""
       TeleEntry1.writeByte('x'.charCodeAt(0) , function(err) {});
       TeleEntry1.writeByte(res, function(err) {});
     }
     else if (res != '#'.charCodeAt(0) ){
       console.log("Reading Byte data")
-      message.concat(String.fromCharCode(res))
+      message = message.concat(String.fromCharCode(res))
       console.log(message)
       TeleEntry1.writeByte('x'.charCodeAt(0) , function(err) {});
       TeleEntry1.writeByte(res, function(err) {});
