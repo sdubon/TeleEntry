@@ -9,8 +9,10 @@ var message = ""
 
 //"i=00001&c=9328&a=s"
 
+console.log("Start")
 
 while(true){
+  console.log("infinite loop")
   TeleEntry1.readByte(function(err, res) { 
     console.log("Reading Byte #")
     if (res == "!"){
