@@ -22,7 +22,7 @@ while(true){
     console.log(res)
     console.log("inside")
   //sleep.sleep(10)
-  });
+  })
 console.log("outside")
 }
 /*
