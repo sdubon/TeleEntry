@@ -12,7 +12,7 @@ var message = ""
 console.log("Start")
 
 while(true){
-  console.log("infinite loop")
+  //console.log("infinite loop")
   TeleEntry1.readByte(function(err, res) { 
     console.log("Reading Byte #")
     if (res == "!"){
