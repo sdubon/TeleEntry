@@ -17,7 +17,7 @@ setInterval(function(){
   TeleEntry1.readByte(function(err, res) { 
     if (res == '!'.charCodeAt(0) ){
       console.log("message")
-      console.log(_ID)
+      console.log(message)
       message = ""
       TeleEntry1.writeByte('x'.charCodeAt(0) , function(err) {});
       TeleEntry1.writeByte(res, function(err) {});
@@ -25,7 +25,6 @@ setInterval(function(){
     else if (res != '#'.charCodeAt(0) ){
       console.log("Reading Byte data")
       message = message.concat(String.fromCharCode(res))
-      console.log(message)
       TeleEntry1.writeByte('x'.charCodeAt(0) , function(err) {});
       TeleEntry1.writeByte(res, function(err) {});
     }
