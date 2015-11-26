@@ -12,6 +12,7 @@ var message = ""
 
 while(true){
   TeleEntry1.readByte(function(err, res) { 
+    console.log("Reading Byte #")
     if (res == "!"){
       console.log(message)
       message = ""
@@ -19,6 +20,7 @@ while(true){
       TeleEntry1.writeByte(res, function(err) {});
     }
     else if (res != "#"){
+      console.log("Reading Byte data")
       message.concat(res)
       TeleEntry1.writeByte("x", function(err) {});
       TeleEntry1.writeByte(res, function(err) {});
