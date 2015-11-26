@@ -15,7 +15,6 @@ var message = ""
   //console.log("infinite loop")
 setInterval(function(){
   TeleEntry1.readByte(function(err, res) { 
-    console.log("Reading Byte #")
     if (res == "!"){
       console.log(message)
       message = ""
@@ -27,6 +26,9 @@ setInterval(function(){
       message.concat(res)
       TeleEntry1.writeByte("x", function(err) {});
       TeleEntry1.writeByte(res, function(err) {});
+    }
+    else{
+      console.log("Reading Byte #")
     }
   console.log(res)
   });
