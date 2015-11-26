@@ -14,6 +14,7 @@ var message = ""
 
 console.log("Start")
 while(true){
+sleep.sleep(10)
 TeleEntry1.readByte(function(err, res) { 
 // result is single byte 
 sleep.sleep(10)
