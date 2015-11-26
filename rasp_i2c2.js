@@ -30,7 +30,7 @@ setInterval(function(){
     else{
       console.log("Reading Byte #")
     }
-  console.log(res)
+  console.log(String.fromCharCode(res))
   });
 }, 1000);
 
