@@ -6,7 +6,7 @@ var sleep = require('sleep');
 
 var i = 0;
 var state = 0;
-var _ID = ""
+var _ID = "test message"
 var _CODE = ""
 var message = " "
 
@@ -17,7 +17,7 @@ setInterval(function(){
   TeleEntry1.readByte(function(err, res) { 
     if (res == '!'.charCodeAt(0) ){
       console.log("message")
-      console.log(message)
+      console.log(_ID)
       message = " "
       TeleEntry1.writeByte('x'.charCodeAt(0) , function(err) {});
       TeleEntry1.writeByte(res, function(err) {});
