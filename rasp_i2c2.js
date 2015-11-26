@@ -14,14 +14,15 @@ var message = ""
 
 console.log("Start")
 while(true){
-sleep.sleep(1)
-TeleEntry1.readByte(function(err, res) { 
-// result is single byte 
-//sleep.sleep(10)
-console.log(res)
-console.log("inside")
-//sleep.sleep(10)
-});
+  sleep.sleep(1)
+  TeleEntry1.readByte(function(err, res) { 
+  // result is single byte 
+  //sleep.sleep(10)
+    console.log(err)
+    console.log(res)
+    console.log("inside")
+  //sleep.sleep(10)
+  });
 console.log("outside")
 }
 /*
