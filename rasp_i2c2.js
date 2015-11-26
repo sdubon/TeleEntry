@@ -19,8 +19,10 @@ TeleEntry1.readByte(function(err, res) {
 // result is single byte 
 //sleep.sleep(10)
 console.log(res)
+console.log("inside")
 //sleep.sleep(10)
 });
+console.log("outside")
 }
 /*
 while(true){
