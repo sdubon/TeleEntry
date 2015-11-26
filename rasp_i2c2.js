@@ -13,7 +13,7 @@ var message = ""
 //"i=00001&c=9328&a=s"
 
 console.log("Start")
-TeleENtry1.on('data', function(data) {
+TeleEntry1.on('data', function(data) {
   // result for continuous stream contains data buffer, address, length, timestamp 
 console.log(data);
 });
