@@ -21,7 +21,7 @@ setInterval(function(){
       TeleEntry1.writeByte('x'.charCodeAt(0) , function(err) {});
       TeleEntry1.writeByte(res, function(err) {});
     }
-    else if (res != '#'){
+    else if (res != '#'.charCodeAt(0) ){
       console.log("Reading Byte data")
       message.concat(res)
       TeleEntry1.writeByte('x'.charCodeAt(0) , function(err) {});
