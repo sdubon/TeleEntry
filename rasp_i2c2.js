@@ -23,17 +23,13 @@ setInterval(function(){
       TeleEntry1.writeByte(res, function(err) {});
     }
     else if (res != '#'.charCodeAt(0) ){
-      console.log("Reading Byte data")
       message = message.concat(String.fromCharCode(res))
       TeleEntry1.writeByte('x'.charCodeAt(0) , function(err) {});
       TeleEntry1.writeByte(res, function(err) {});
     }
-    else{
-      console.log("Reading Byte #")
-    }
   console.log(String.fromCharCode(res))
   });
-}, 500);
+}, 10);
 
 /*
   switch(state){
