@@ -25,6 +25,7 @@ setInterval(function(){
     else if (res != '#'.charCodeAt(0) ){
       console.log("Reading Byte data")
       message.concat(String.fromCharCode(res))
+      console.log(message)
       TeleEntry1.writeByte('x'.charCodeAt(0) , function(err) {});
       TeleEntry1.writeByte(res, function(err) {});
     }
@@ -33,7 +34,7 @@ setInterval(function(){
     }
   console.log(String.fromCharCode(res))
   });
-}, 1000);
+}, 500);
 
 /*
   switch(state){
