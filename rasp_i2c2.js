@@ -14,6 +14,7 @@ console.log("Start")
 while(true){
   //console.log("infinite loop")
   TeleEntry1.readByte(function(err, res) { 
+    /*
     console.log("Reading Byte #")
     if (res == "!"){
       console.log(message)
@@ -27,6 +28,7 @@ while(true){
       TeleEntry1.writeByte("x", function(err) {});
       TeleEntry1.writeByte(res, function(err) {});
     }
+  */
   console.log(res)
   });
 }
