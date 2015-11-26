@@ -29,7 +29,7 @@ setInterval(function(){
     }
   //console.log(String.fromCharCode(res))
   });
-}, 1);
+}, 10);
 
 /*
   switch(state){
