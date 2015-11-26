@@ -12,15 +12,8 @@ var message = ""
 
 //"i=00001&c=9328&a=s"
 
-console.log("Start")
-TeleEntry1.on('data', function(data) {
-  // result for continuous stream contains data buffer, address, length, timestamp 
-  console.log('data');
-  console.log(data);
-});
-/*
-while(true){
   //console.log("infinite loop")
+setTimeout(function(){
   TeleEntry1.readByte(function(err, res) { 
     console.log("Reading Byte #")
     if (res == "!"){
@@ -37,8 +30,7 @@ while(true){
     }
   console.log(res)
   });
-}
-*/
+}, 1000);
 
 /*
   switch(state){
