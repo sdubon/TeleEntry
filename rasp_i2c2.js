@@ -17,6 +17,7 @@ while(true){
       message = ""
       TeleEntry1.writeByte("x", function(err) {});
       TeleEntry1.writeByte(res, function(err) {});
+    }
     else if (res != "#"){
       message.concat(res)
       TeleEntry1.writeByte("x", function(err) {});
