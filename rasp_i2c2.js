@@ -10,11 +10,10 @@ var message = ""
 //"i=00001&c=9328&a=s"
 
 console.log("Start")
-while(true){
-yield setTimeout(suspend.resume(), 10);  
+for(var i = 0; i < 40; i++){
 TeleEntry1.readByte(function(err, res) { 
 // result is single byte 
-console.log("read byte")
+console.log(res)
 });
 }
 /*
