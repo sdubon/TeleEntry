@@ -1,6 +1,9 @@
 var i2c = require('i2c');
 var address1 = 0x18;
 var TeleEntry1 = new i2c(address1, {device: '/dev/i2c-1'}); // point to your i2c address, debug provides REPL interface
+
+var sleep = require('sleep');
+
 var i = 0;
 var state = 0;
 var _ID = ""
@@ -11,10 +14,10 @@ var message = ""
 
 console.log("Start")
 while(true){
-i++;  
 TeleEntry1.readByte(function(err, res) { 
 // result is single byte 
 console.log(res)
+sleep.sleep(1)
 });
 }
 /*
