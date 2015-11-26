@@ -17,7 +17,7 @@ while(true){
 TeleEntry1.readByte(function(err, res) { 
 // result is single byte 
 console.log(res)
-sleep.sleep(1)
+sleep.sleep(10)
 });
 }
 /*
